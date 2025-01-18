@@ -44,7 +44,7 @@ export const deleteUser = async (id) => {
     await connect();
 
     // DELETE USER
-    await User.deleteOneAndDelete({ clerkId });
+    await User.deleteOneAndDelete({ clerkId: id });
   } catch (error) {
     console.error("Error: Could not delete user:", error);
   }
