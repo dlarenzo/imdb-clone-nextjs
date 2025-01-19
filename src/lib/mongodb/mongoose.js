@@ -26,16 +26,3 @@ export const connect = async () => {
     console.error("Error connecting to MongoDB", error);
   }
 };
-
-export const deleteUser = async (id) => {
-  try {
-    // CONNECT TO MONGODB
-    await connect();
-
-    // DELETE USER
-    await User.deleteOne({ clerkId });
-  } catch (error) {
-    // LOG ERROR
-    console.error("Error: Could not delete user:", error);
-  }
-};

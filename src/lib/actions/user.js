@@ -33,9 +33,12 @@ export const createOrUpdateUser = async (
 };
 export const deleteUser = async (id) => {
   try {
+    // CONNECT TO MONGODB
     await connect();
+    // DELETE USER
     await User.findOneAndDelete({ clerkId: id });
   } catch (error) {
+    // LOG ERROR
     console.log("Error: Could not delete user:", error);
   }
 };
