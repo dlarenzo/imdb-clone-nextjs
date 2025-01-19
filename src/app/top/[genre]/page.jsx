@@ -23,6 +23,7 @@ export default async function Home({ params }) {
   return (
     <div>
       <Results results={results} />
+      <p>Hi</p>
     </div>
   );
 }
