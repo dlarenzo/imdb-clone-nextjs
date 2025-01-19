@@ -1,5 +1,6 @@
 import { Webhook } from "svix";
 import { headers } from "next/headers";
+import { createOrUpdateUser, deleteUser } from "@/lib/actions/user";
 import { clerkClient } from "@clerk/nextjs/server";
 
 export async function POST(req) {
@@ -49,15 +50,12 @@ export async function POST(req) {
 
   // Do something with payload
   // For this guide, log payload to console
-  const { id } = evt.data;
-  const eventType = evt.type;
+  const { id } = evt?.data;
+  const eventType = evt?.type;
 
-  // USER CREATED OR UPDATED
   if (eventType === "user.created" || eventType === "user.updated") {
-    // GET INFO FROM CLERK PAYLOAD
-    const { first_name, last_name, image_url, email_addresses } = evt.data;
+    const { first_name, last_name, image_url, email_addresses } = evt?.data;
     try {
-      // CREATE OR UPDATE USER
       const user = await createOrUpdateUser(
         id,
         first_name,
@@ -65,8 +63,6 @@ export async function POST(req) {
         image_url,
         email_addresses
       );
-
-      // ONCE USER IS CREATED OR UPDATED, LOG USER MongoId
       if (user && eventType === "user.created") {
         try {
           const client = await clerkClient();
@@ -76,7 +72,7 @@ export async function POST(req) {
             },
           });
         } catch (error) {
-          console.error("Error: Could not create or update user:", error);
+          console.log("Error: Could not update user metadata:", error);
         }
       }
     } catch (error) {
@@ -87,13 +83,11 @@ export async function POST(req) {
     }
   }
 
-  // USER DELETED
   if (eventType === "user.deleted") {
     try {
-      // DELETE USER
       await deleteUser(id);
     } catch (error) {
-      console.error("Error: Could not delete user:", error);
+      console.log("Error: Could not delete user:", error);
       return new Response("Error: Could not delete user", {
         status: 400,
       });
