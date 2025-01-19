@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function Page() {
   const [mounted, setMounted] = useState(false);
@@ -58,13 +59,13 @@ export default function Page() {
 
         <p>
           This website is created using Next.js and{" "}
-          <a
+          <Link
             href="https://go.clerk.com/fgJHKlt"
             target="_blank"
             className="text-teal-500 hover:underline"
           >
             Clerk
-          </a>
+          </Link>
           .
         </p>
       </div>
