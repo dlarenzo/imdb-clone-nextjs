@@ -17,6 +17,8 @@ export default function SearchBox() {
     if (!search) return;
     // PUSH TO ROUTER
     router.push(`/search/${search}`);
+    // CLEAR SEARCH
+    setSearch("");
   };
   return (
     <form

@@ -4,7 +4,7 @@ import Results from "@/components/Results";
 // SERVER SIDE COMPONENT SO MUST BE ASYNCHRONOUS (We want to fetch data BEFORE page is loaded)
 // We get the search term from the URL params
 export default async function Page({ params }) {
-  const { searchItem } = params;
+  const { searchItem } = await params;
 
   try {
     // FETCH DATA FROM API BEFORE PAGE LOADS
