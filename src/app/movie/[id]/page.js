@@ -42,7 +42,7 @@ export default async function MovePage({ params }) {
           alt={movie.title}
           className="rounded-lg w-full md:w-96 h-56 object-cover"
         ></img>
-        <div className="p-2">
+        <div className="p-2 ml-4">
           <h2 className="text-lg mb-3 font-bold">
             {" "}
             {movie.title || movie.name}{" "}
@@ -58,7 +58,7 @@ export default async function MovePage({ params }) {
             {movie.vote_count}
           </p>
           <AddToFav
-            movieId={movie.id}
+            movieId={movieId}
             movieName={movie.title || movie.name}
             image={movie.backdrop_path || movie.poster_path}
             overview={movie.overview}

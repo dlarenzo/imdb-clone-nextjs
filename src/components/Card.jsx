@@ -16,10 +16,10 @@ export default function Card({ result }) {
         ></img>
         <div className="p-2">
           {/* THE DESCRIPTION */}
-          <p className="line-clamp-3 text-sm">{result.overview}</p>
           <h2 className="font-bold truncate my-2 text-sm">
             {result.title || result.name}
           </h2>
+          <p className="line-clamp-3 text-sm my-2 ">{result.overview}</p>
           <p className="flex items-center text-xs">
             {result.release_date || result.first_air_date}{" "}
             <FiThumbsUp className="h-5 mr-1 ml-3" />
