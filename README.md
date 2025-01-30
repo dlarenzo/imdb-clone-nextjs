@@ -42,3 +42,15 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 main
 
 1.0-file-setup
+2.0-header
+3.0-darkmode
+4.0-about
+5.0-authentication
+6.0-clerkAndMongoDb
+7.0-mongoDb
+8.0-navbar
+9.0-fetchAndDisplayMovies
+10.0-errorHandling
+11.0-addMoviePage
+12.0-searchFunctionality
+13.0-addFavoritesFunctionality
