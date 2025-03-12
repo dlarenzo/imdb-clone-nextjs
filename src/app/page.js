@@ -17,7 +17,7 @@ export default async function Home() {
   // IF DATA IS OK SAVE TO RESULTS VARIABLE
   const results = data.results;
   return (
-    <div>
+    <div className="bg-blue-950">
       {/* PASS results as param TO RESULTS COMPONENT */}
       <Results results={results} />
     </div>
